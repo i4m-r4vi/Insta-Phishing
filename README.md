@@ -35,8 +35,8 @@ phish-instagram-clone/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/phish-instagram-clone.git
-cd phish-instagram-clone
+git clone https://github.com/i4m-r4vi/Insta-Phishing.git
+cd Insta-Phishing
 ```
 
 ---
