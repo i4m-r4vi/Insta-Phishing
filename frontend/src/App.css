@@ -52,3 +52,8 @@ button {
   margin-top: 15px;
   cursor: pointer;
 }
+
+.loading {
+  margin-top: 10px;
+  text-align: center;
+}
