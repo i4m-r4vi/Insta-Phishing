@@ -5,6 +5,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+    res.status(200).send("<center>Working server</center>");
+})
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
   console.log(`Username:${username} and Password:${password}`)
