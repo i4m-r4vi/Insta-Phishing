@@ -8,7 +8,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND}api/login`, {
+      await axios.post(`${import.meta.env.VITE_BACKEND}/api/login`, {
         username,
         password,
       });
