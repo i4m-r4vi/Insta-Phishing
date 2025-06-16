@@ -58,10 +58,10 @@ Backend runs on: `http://localhost:5000`
 ```bash
 cd ../client
 npm install
-npm start
+npm run dev
 ```
 
-Frontend runs on: `http://localhost:3000`
+Frontend runs on: `http://localhost:5173`
 
 ---
 
